@@ -12,12 +12,20 @@ output:
 Originally, yoga is meant for people to use as spiritual development practices to train the body and mind. However, there tends to be several issues being encountered by the users such as the postures and pressure points. As such, we hope to improvise the yoga activity itself by making it more interactive where the users can receive immediate feedback after working out on our yoga mat. Apart from that, yoga does not need to be a repetitive activity as there is different challenge everyday for the user to compete with other friends too! It is a personalized app that has your own details being stored in it and can be customized according to various themes. Let's use Yogaful!
 
 
+Top Reviews:
+
+> "It is awesome lifestyle device for me and my friends to connect!"
+
+> "Great app, 8.5/10"
+
+> "I am looking forward to the next update"
+
+
 ##Navigation of App Icons
 
-[*Sample Pictures of the App*](https://www.dropbox.com/home?preview=yogaful.jpg)
 <img src="Capture.png">
 
-1) Profile = Edit (name, gender, birth daye, country, link), Notification (new friends, messages, comments, workout remainder, mat battery alert), Favourite (route, sequence, discussions)
+1) Profile = Edit (name, gender, birth day, country, link), Notification (new friends, messages, comments, workout remainder, mat battery alert), Favourite (route, sequence, discussions)
 
 2) Activity = History (most recent), Achievements (personal trophies), Rewards (different lotus colour)
 
@@ -82,12 +90,3 @@ library(viridisLite)
 ```{r}
 image(volcano, col = viridis(200))
 ```
-
-
-##Top Reviews:
-
-> "It is awesome lifestyle device for me and my friends to connect!"
-
-> "Great app, 8.5/10"
-
-> "I am looking forward to the next update"
