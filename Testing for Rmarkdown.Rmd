@@ -1,0 +1,93 @@
+---
+title: "Yogaful - Product Manual"
+author: "Chee Sheng"
+date: "November 5, 2018"
+output:  
+  html_document: default
+---
+
+#{.tabset}
+
+##Why Yogaful?
+Originally, yoga is meant for people to use as spiritual development practices to train the body and mind. However, there tends to be several issues being encountered by the users such as the postures and pressure points. As such, we hope to improvise the yoga activity itself by making it more interactive where the users can receive immediate feedback after working out on our yoga mat. Apart from that, yoga does not need to be a repetitive activity as there is different challenge everyday for the user to compete with other friends too! It is a personalized app that has your own details being stored in it and can be customized according to various themes. Let's use Yogaful!
+
+
+##Navigation of App Icons
+
+[*Sample Pictures of the App*](https://www.dropbox.com/home?preview=yogaful.jpg)
+<img src="Capture.png">
+
+1) Profile = Edit (name, gender, birth daye, country, link), Notification (new friends, messages, comments, workout remainder, mat battery alert), Favourite (route, sequence, discussions)
+
+2) Activity = History (most recent), Achievements (personal trophies), Rewards (different lotus colour)
+
+3) Calibration = Step 1 (entering of biometrical data), Step 2 (assume the Upward Dog Pose on the Mat), Step 3 (Place both hands and feet on the lit area of the mat)
+
+4) Yogaful Now = Beginniner/Novice/Pro courses, Health, Meditation, Strength, Yogaful & Friends (Competitive challenge/Cooperative challenge)
+
+5) Feed = Quality blog posts pertaining to food nutrition and essential Yoga anatomy
+
+6) Community = Monthly leaderboard and available challenges
+
+##Summary of the Challenge  
+
+| Category | Adrian Kee   
+------------- | -------------
+| Time Elapse | 10.2 minutes  
+| PSI Accuracy (Left Foot) | > 50% over  
+| PSI Accuracy (Right Foot) | > 50% over
+| PSI Accuracy (Left Hand) | 20 - 40% over
+| PSI Accuracy (Right Hand) | > 50% over
+| Pulse | 54 bpm  
+| Respirator Rate | 12 bpm  
+| Temperature | 37°C 
+| Total Points | 4,950 points
+
+```{r, echo = FALSE}
+library("gsheet")
+library("ggplot2")
+data1 <- gsheet2tbl('docs.google.com/spreadsheets/d/1vxPl-DJyJuS80YId2cvFEisFFlI4Cg839kD9XhNCZIk/edit#gid=0')
+
+yogaful_adrian <- ggplot(data1, aes(x= time, y= accuracy), size = 2) + coord_fixed(ratio = 10/100) + labs(title="Adrian's Accuracy Test", subtitle="Total Average Accurary = 65%")
+yogaful_adrian + geom_line() + theme_classic()
+
+```
+
+## Monthly Leaderboard
+
+```{r, echo = FALSE}
+library("ggplot2")
+library("scales")
+theme_set(theme_classic())
+
+data2 <- gsheet2tbl('docs.google.com/spreadsheets/d/1bRxqKC-GTmNEllDTSsBG5FqUKofOacOK7Hahzt057sg/edit#gid=0')
+
+yogaful_players <- ggplot(data2, aes(x=Name, y=Points)) + 
+  geom_point(col="tomato2", size=5) +  
+  #geom_segment(aes(x=Name, xend=Name, y=min(Points), yend=max(Points), linetype="dashed", size=0.01)) +
+  labs(title="Most Yogaful This Month", 
+       subtitle="Top 10 Users", 
+       caption="source: yogaful.pte.ltd") +  
+  coord_flip()
+plot(yogaful_players)
+```
+
+
+## Heatmap (Left Palm)
+
+```{r setup, include=FALSE}
+library(viridisLite)
+```
+
+```{r}
+image(volcano, col = viridis(200))
+```
+
+
+##Top Reviews:
+
+> "It is awesome lifestyle device for me and my friends to connect!"
+
+> "Great app, 8.5/10"
+
+> "I am looking forward to the next update"
